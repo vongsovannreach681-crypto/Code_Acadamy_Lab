@@ -89,6 +89,18 @@ const Header = ({ favoritesCount = 0 }) => {
               Sharing
             </NavLink>
             <NavLink
+              to="/certificate"
+              className={({ isActive }) =>
+                `text-[18px] font-semibold transition md:text-[18px] ${
+                  isActive
+                    ? 'text-yellow-500 underline underline-offset-8'
+                    : 'text-indigo-700 hover:text-indigo-900 dark:text-indigo-200 dark:hover:text-white'
+                }`
+              }
+            >
+              Cerifycate
+            </NavLink>
+            <NavLink
               to="/about"
               className={({ isActive }) =>
                 `text-[18px] font-semibold transition md:text-[18px] ${
@@ -256,6 +268,19 @@ const Header = ({ favoritesCount = 0 }) => {
               onClick={() => setIsMenuOpen(false)}
             >
               Sharing
+            </NavLink>
+            <NavLink
+              to="/certificate"
+              className={({ isActive }) =>
+                `block rounded-lg px-3 py-2 text-[18px] font-semibold transition ${
+                  isActive
+                    ? 'text-yellow-500 underline underline-offset-8'
+                    : 'text-indigo-700 hover:bg-slate-50 hover:text-indigo-900 dark:text-indigo-200 dark:hover:bg-white/10 dark:hover:text-white'
+                }`
+              }
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Cerifycate
             </NavLink>
             <NavLink
               to="/about"

@@ -15,6 +15,7 @@ import Register from './pages/Register.jsx';
 import ProtectedRoute from './components/ProtectedRoute.jsx';
 import About from './pages/About.jsx';
 import Profile from './pages/Profile.jsx';
+import Certificate from './pages/Certificate.jsx';
 
 const router = createBrowserRouter([
   {
@@ -65,6 +66,13 @@ const router = createBrowserRouter([
   },{
     path:"/profile",
     element:<Profile/>
+  },{
+    path:"/certificate",
+    element:(
+      <ProtectedRoute>
+        <Certificate/>
+      </ProtectedRoute>
+    )
   },{
     path: "*",
     element: <Navigate to="/" replace />

@@ -20,6 +20,7 @@ const Profile = () => {
     avatar: user?.avatar || "",
   }));
   const [avatarName, setAvatarName] = useState("");
+  const [notice, setNotice] = useState("");
 
   const [lessonsList, setLessonsList] = useState(() => getAllLessons());
   const [favoriteIds, setFavoriteIds] = useState(() => {
@@ -80,6 +81,7 @@ const Profile = () => {
     const users = JSON.parse(localStorage.getItem("authUsers") || "[]");
     const next = users.map((item) => (item.id === user.id ? updated : item));
     localStorage.setItem("authUsers", JSON.stringify(next));
+    setNotice("Profile updated successfully.");
   };
 
   const removeMyLesson = (lessonId) => {
@@ -87,6 +89,7 @@ const Profile = () => {
     const stored = JSON.parse(localStorage.getItem("userLessons") || "[]");
     const next = stored.filter((lesson) => lesson.id !== lessonId);
     localStorage.setItem("userLessons", JSON.stringify(next));
+    setNotice("Lesson removed.");
   };
 
   const removeFavorite = (lessonId) => {
@@ -96,6 +99,7 @@ const Profile = () => {
     delete meta[lessonId];
     localStorage.setItem("favorites", JSON.stringify(next));
     localStorage.setItem("favoritesMeta", JSON.stringify(meta));
+    setNotice("Favorite removed.");
   };
 
   const removeHistory = (lessonId, viewedAt) => {
@@ -104,6 +108,7 @@ const Profile = () => {
     );
     setHistoryEntries(next);
     localStorage.setItem("viewHistory", JSON.stringify(next));
+    setNotice("History entry removed.");
   };
 
   if (!user) {
@@ -174,6 +179,11 @@ const Profile = () => {
             </aside>
 
             <div className="space-y-6">
+              {notice && (
+                <div className="rounded-2xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm font-semibold text-emerald-700 shadow-sm dark:border-emerald-500/30 dark:bg-emerald-500/10 dark:text-emerald-200">
+                  {notice}
+                </div>
+              )}
               {activeTab === "profile" && (
                 <div className="rounded-3xl border border-white/60 bg-white/70 p-6 shadow-[0_24px_60px_rgba(15,23,42,0.18)] backdrop-blur dark:border-white/10 dark:bg-slate-900/70">
                   <p className="text-xs font-semibold uppercase tracking-[0.35em] text-blue-700/80 dark:text-cyan-300/80">
