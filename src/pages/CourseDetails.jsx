@@ -3,10 +3,6 @@ import { useParams, Link } from "react-router-dom";
 import LessonData from "../Data/LessonData.json";
 import Header from "../components/HeaderAndFooter/Header";
 import Footer from "../components/HeaderAndFooter/Footer";
-const pdfFiles = import.meta.glob("../assets/PDF/*.pdf", {
-  eager: true,
-  as: "url",
-});
 const CourseDetails = () => {
   const { id } = useParams();
   const course = LessonData.find((lesson) => lesson.id === Number(id));
@@ -18,11 +14,8 @@ const CourseDetails = () => {
   }
   const lessons = course.lessons || [];
   const baseUrl = import.meta.env.BASE_URL || "/";
-  const publicPdfUrl = course.pdf
-    ? `${baseUrl}PDF/${encodeURIComponent(course.pdf)}`
-    : null;
   const pdfUrl = course.pdf
-    ? pdfFiles[`../assets/PDF/${course.pdf}`] || publicPdfUrl
+    ? `${baseUrl}PDF/${encodeURIComponent(course.pdf)}`
     : null;
   const [activeLessonId, setActiveLessonId] = useState(
     lessons.length ? lessons[0].id : null
