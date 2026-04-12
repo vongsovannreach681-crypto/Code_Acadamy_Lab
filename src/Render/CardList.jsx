@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import LessonData from "../Data/LessonData.json";
+import { getAllLessons } from "../Data/lessonStore";
 import { Link } from "react-router-dom";
 import Header from "../components/HeaderAndFooter/Header";
 import Footer from "../components/HeaderAndFooter/Footer";
@@ -12,7 +12,7 @@ const CardList = ({ favorites = [], onToggleFavorite, initialVisible = 6 }) => {
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setCards(LessonData);
+      setCards(getAllLessons());
       setLoading(false);
     }, 300);
     return () => clearTimeout(timer);

@@ -1,6 +1,6 @@
-import React, { useMemo, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
-import LessonData from '../Data/LessonData.json'
+import { getAllLessons } from '../Data/lessonStore'
 import Header from '../components/HeaderAndFooter/Header'
 import Footer from '../components/HeaderAndFooter/Footer'
 
@@ -10,6 +10,11 @@ const FavoritePage = ({ favorites = [] }) => {
     const stored = localStorage.getItem('favorites')
     return stored ? JSON.parse(stored) : []
   })
+  const [courses, setCourses] = useState([])
+
+  useEffect(() => {
+    setCourses(getAllLessons())
+  }, [])
 
   const ids = favorites.length ? favorites : localIds
 
@@ -20,7 +25,7 @@ const FavoritePage = ({ favorites = [] }) => {
 
   const [query, setQuery] = useState('')
 
-  const favoriteCourses = LessonData.filter((lesson) => ids.includes(lesson.id))
+  const favoriteCourses = courses.filter((lesson) => ids.includes(lesson.id))
   const filteredCourses = favoriteCourses.filter((course) =>
     course.name.toLowerCase().includes(query.trim().toLowerCase())
   )

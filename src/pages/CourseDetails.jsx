@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import LessonData from "../Data/LessonData.json";
+import { getAllLessons } from "../Data/lessonStore";
+import { getCurrentUser } from "../utils/auth";
 import Header from "../components/HeaderAndFooter/Header";
 import Footer from "../components/HeaderAndFooter/Footer";
 const CourseDetails = () => {
   const { id } = useParams();
-  const course = LessonData.find((lesson) => lesson.id === Number(id));
+  const course = getAllLessons().find((lesson) => lesson.id === Number(id));
 
   if (!course) {
     return (
@@ -15,13 +16,28 @@ const CourseDetails = () => {
   const lessons = course.lessons || [];
   const baseUrl = import.meta.env.BASE_URL || "/";
   const pdfUrl = course.pdf
-    ? `${baseUrl}PDF/${encodeURIComponent(course.pdf)}`
+    ? course.pdf.startsWith("data:") || course.pdf.startsWith("http")
+      ? course.pdf
+      : `${baseUrl}PDF/${encodeURIComponent(course.pdf)}`
     : null;
   const [activeLessonId, setActiveLessonId] = useState(
     lessons.length ? lessons[0].id : null
   );
   const activeLesson =
     lessons.find((lesson) => lesson.id === activeLessonId) || lessons[0];
+
+  useEffect(() => {
+    if (!course) return;
+    const user = getCurrentUser();
+    const stored = JSON.parse(localStorage.getItem("viewHistory") || "[]");
+    const entry = {
+      lessonId: course.id,
+      viewedAt: new Date().toISOString(),
+      userId: user?.id || null,
+    };
+    const next = [entry, ...stored].slice(0, 40);
+    localStorage.setItem("viewHistory", JSON.stringify(next));
+  }, [course]);
 
   return (
     <>

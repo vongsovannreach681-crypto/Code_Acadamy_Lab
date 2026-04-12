@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import Editor from "@monaco-editor/react";
 import Header from "../components/HeaderAndFooter/Header";
 import Footer from "../components/HeaderAndFooter/Footer";
-import LessonData from "../Data/LessonData.json";
+import { getAllLessons } from "../Data/lessonStore";
 
 const LANGUAGE_PRIORITY = [
   "HTML",
@@ -47,10 +47,20 @@ const resolveMonacoLanguage = (language) => {
 };
 
 const EnrollForCode = () => {
-  const [courseId, setCourseId] = useState(LessonData[0]?.id || 1);
+  const [courses, setCourses] = useState(() => getAllLessons());
+  const [courseId, setCourseId] = useState(
+    () => getAllLessons()[0]?.id || 1
+  );
+  useEffect(() => {
+    const next = getAllLessons();
+    setCourses(next);
+    if (!next.find((course) => course.id === Number(courseId))) {
+      setCourseId(next[0]?.id || 1);
+    }
+  }, []);
   const selectedCourse = useMemo(
-    () => LessonData.find((course) => course.id === Number(courseId)),
-    [courseId]
+    () => courses.find((course) => course.id === Number(courseId)),
+    [courseId, courses]
   );
   const [lessonIndex, setLessonIndex] = useState(0);
   const [code, setCode] = useState("");
@@ -212,7 +222,7 @@ const EnrollForCode = () => {
                 Write code and run tests in the browser
               </h1>
               <p className="mt-2 max-w-2xl text-sm text-slate-600 dark:text-slate-300 sm:text-base">
-                Language options are generated from LessonData.json. JavaScript
+                Language options are generated from the lesson library. JavaScript
                 supports running tests in-browser. Other languages are shown for
                 practice and preview.
               </p>
@@ -226,7 +236,7 @@ const EnrollForCode = () => {
                   setLessonIndex(0);
                 }}
               >
-                {LessonData.map((course) => (
+                {courses.map((course) => (
                   <option key={course.id} value={course.id}>
                     {course.name.trim()}
                   </option>

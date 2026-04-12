@@ -1,8 +1,8 @@
-import React, { useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import Header from "../components/HeaderAndFooter/Header";
 import Footer from "../components/HeaderAndFooter/Footer";
-import LessonData from "../Data/LessonData.json";
+import { getAllLessons } from "../Data/lessonStore";
 
 const AllCourseRenderForNav = () => {
   const [favorites, setFavorites] = useState(() => {
@@ -11,17 +11,23 @@ const AllCourseRenderForNav = () => {
     return stored ? JSON.parse(stored) : [];
   });
 
-  const categories = useMemo(() => {
-    const unique = new Set(LessonData.map((course) => course.category));
-    return ["All", ...Array.from(unique)];
+  const [courses, setCourses] = useState([]);
+
+  useEffect(() => {
+    setCourses(getAllLessons());
   }, []);
+
+  const categories = useMemo(() => {
+    const unique = new Set(courses.map((course) => course.category));
+    return ["All", ...Array.from(unique)];
+  }, [courses]);
 
   const [activeCategory, setActiveCategory] = useState("All");
   const [searchTerm, setSearchTerm] = useState("");
 
   const filteredCourses = useMemo(() => {
     const term = searchTerm.trim().toLowerCase();
-    return LessonData.filter((course) => {
+    return courses.filter((course) => {
       const matchesCategory =
         activeCategory === "All" || course.category === activeCategory;
       const matchesSearch =
@@ -31,7 +37,7 @@ const AllCourseRenderForNav = () => {
         course.tags.some((tag) => tag.toLowerCase().includes(term));
       return matchesCategory && matchesSearch;
     });
-  }, [activeCategory, searchTerm]);
+  }, [activeCategory, searchTerm, courses]);
 
   const toggleFavorite = (id) => {
     setFavorites((prev) => {

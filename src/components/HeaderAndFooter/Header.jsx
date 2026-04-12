@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import logo from '../../assets/Logo.png'
+import { getCurrentUser, logoutUser } from '../../utils/auth'
 
 const Header = ({ favoritesCount = 0 }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -8,6 +9,7 @@ const Header = ({ favoritesCount = 0 }) => {
     if (typeof window === 'undefined') return 'light'
     return localStorage.getItem('theme') || 'light'
   })
+  const [user, setUser] = useState(() => getCurrentUser())
 
   useEffect(() => {
     if (typeof document === 'undefined') return
@@ -16,8 +18,19 @@ const Header = ({ favoritesCount = 0 }) => {
     localStorage.setItem('theme', theme)
   }, [theme])
 
+  useEffect(() => {
+    const handleStorage = () => setUser(getCurrentUser())
+    window.addEventListener('storage', handleStorage)
+    return () => window.removeEventListener('storage', handleStorage)
+  }, [])
+
   const toggleTheme = () => {
     setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'))
+  }
+
+  const handleLogout = () => {
+    logoutUser()
+    setUser(null)
   }
 
   return (
@@ -64,6 +77,18 @@ const Header = ({ favoritesCount = 0 }) => {
               Courses
             </NavLink>
             <NavLink
+              to="/sharing"
+              className={({ isActive }) =>
+                `text-[18px] font-semibold transition md:text-[18px] ${
+                  isActive
+                    ? 'text-yellow-500 underline underline-offset-8'
+                    : 'text-indigo-700 hover:text-indigo-900 dark:text-indigo-200 dark:hover:text-white'
+                }`
+              }
+            >
+              Sharing
+            </NavLink>
+            <NavLink
               to="/about"
               className={({ isActive }) =>
                 `text-[18px] font-semibold transition md:text-[18px] ${
@@ -105,13 +130,35 @@ const Header = ({ favoritesCount = 0 }) => {
                   {favoritesCount}
                 </span>
               </Link>
-              <button
-                className="flex items-center gap-2 rounded-lg border border-indigo-200 px-3 py-2 text-sm font-semibold text-indigo-700 shadow-sm transition hover:bg-indigo-50 dark:border-white/20 dark:text-indigo-100 dark:hover:bg-white/10"
-                type="button"
-              >
-                Login
-                <i className="fa-solid fa-right-from-bracket"></i>
-              </button>
+              {user ? (
+                <Link
+                  to="/profile"
+                  className="flex items-center gap-3 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-sm font-semibold text-slate-700 shadow-sm transition hover:border-slate-300 hover:text-slate-900 dark:border-white/10 dark:bg-white/5 dark:text-slate-100 dark:hover:text-white"
+                >
+                  <span className="grid h-8 w-8 place-items-center overflow-hidden rounded-full bg-indigo-100 text-indigo-700 dark:bg-indigo-500/20 dark:text-indigo-200">
+                    {user.avatar ? (
+                      <img
+                        src={user.avatar}
+                        alt={user.name || "User"}
+                        className="h-full w-full object-cover"
+                      />
+                    ) : (
+                      <i className="fa-solid fa-user"></i>
+                    )}
+                  </span>
+                  <span className="max-w-[140px] truncate">
+                    {user.name || "User"}
+                  </span>
+                </Link>
+              ) : (
+                <Link
+                  to="/login"
+                  className="flex items-center gap-2 rounded-lg border border-indigo-200 px-3 py-2 text-sm font-semibold text-indigo-700 shadow-sm transition hover:bg-indigo-50 dark:border-white/20 dark:text-indigo-100 dark:hover:bg-white/10"
+                >
+                  Login
+                  <i className="fa-solid fa-right-from-bracket"></i>
+                </Link>
+              )}
             </div>
           </div>
           </div>
@@ -140,13 +187,35 @@ const Header = ({ favoritesCount = 0 }) => {
                   {favoritesCount}
                 </span>
               </Link>
-              <button
-                className="flex items-center gap-2 rounded-lg border border-indigo-200 px-3 py-2 text-sm font-semibold text-indigo-700 shadow-sm transition hover:bg-indigo-50 dark:border-white/20 dark:text-indigo-100 dark:hover:bg-white/10"
-                type="button"
-              >
-                Login
-                <i className="fa-solid fa-right-from-bracket"></i>
-              </button>
+              {user ? (
+                <Link
+                  to="/profile"
+                  className="flex items-center gap-3 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-sm font-semibold text-slate-700 shadow-sm transition hover:border-slate-300 hover:text-slate-900 dark:border-white/10 dark:bg-white/5 dark:text-slate-100 dark:hover:text-white"
+                >
+                  <span className="grid h-8 w-8 place-items-center overflow-hidden rounded-full bg-indigo-100 text-indigo-700 dark:bg-indigo-500/20 dark:text-indigo-200">
+                    {user.avatar ? (
+                      <img
+                        src={user.avatar}
+                        alt={user.name || "User"}
+                        className="h-full w-full object-cover"
+                      />
+                    ) : (
+                      <i className="fa-solid fa-user"></i>
+                    )}
+                  </span>
+                  <span className="max-w-[140px] truncate">
+                    {user.name || "User"}
+                  </span>
+                </Link>
+              ) : (
+                <Link
+                  to="/login"
+                  className="flex items-center gap-2 rounded-lg border border-indigo-200 px-3 py-2 text-sm font-semibold text-indigo-700 shadow-sm transition hover:bg-indigo-50 dark:border-white/20 dark:text-indigo-100 dark:hover:bg-white/10"
+                >
+                  Login
+                  <i className="fa-solid fa-right-from-bracket"></i>
+                </Link>
+              )}
             </div>
             <NavLink
               to="/"
@@ -174,6 +243,19 @@ const Header = ({ favoritesCount = 0 }) => {
               onClick={() => setIsMenuOpen(false)}
             >
               Courses
+            </NavLink>
+            <NavLink
+              to="/sharing"
+              className={({ isActive }) =>
+                `block rounded-lg px-3 py-2 text-[18px] font-semibold transition ${
+                  isActive
+                    ? 'text-yellow-500 underline underline-offset-8'
+                    : 'text-indigo-700 hover:bg-slate-50 hover:text-indigo-900 dark:text-indigo-200 dark:hover:bg-white/10 dark:hover:text-white'
+                }`
+              }
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Sharing
             </NavLink>
             <NavLink
               to="/about"
