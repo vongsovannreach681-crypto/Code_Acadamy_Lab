@@ -1,0 +1,631 @@
+[
+  {
+    "id": 1,
+    "name": "HTML Fundamentals",
+    "category": "Frontend",
+    "level": "Beginner",
+    "durationHours": 6,
+    "lessonCount": 12,
+    "summary": "Build semantic pages with modern HTML5 structure.",
+    "tags": ["HTML", "Web", "Structure"],
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh_IEJ5W7W9SzXBtCXkmsZsYmJ8Za1-lORVw\u0026s",
+    "lessons": [
+      {
+        "id": 1,
+        "title": "HTML Basics",
+        "content": "HTML (HyperText Markup Language) is the skeleton of every website. It isn't a programming language; it is a markup language that tells the browser how to structure the content you see, such as headings, paragraphs, and images. HTML5 is the latest version, introducing new semantic elements like <header>, <nav>, and <footer> to improve accessibility and SEO.",
+        "code": "\u003ch1\u003eHello HTML\u003c/h1\u003e\n\u003cp\u003eThis is a paragraph.\u003c/p\u003e"
+      },
+      {
+        "id": 2,
+        "title": "Links and Images",
+        "content": "Links connect pages and images make content visual. Use href for links and src for images.",
+        "code": "\u003ca href=\"https://example.com\"\u003eVisit site\u003c/a\u003e\n\u003cimg src=\"/logo.png\" alt=\"Logo\" /\u003e"
+      },{
+        "id": 3,
+        "title": "Forms and Inputs",
+        "content": "Forms collect user data. Use input types like text, email, and submit for different fields.",
+        "code": "\u003cform action=\"/submit\" method=\"post\"\u003e\n  \u003clabel for=\"name\"\u003eName:\u003c/label\u003e\n  \u003cinput type=\"text\" id=\"name\" name=\"name\" /\u003e\n  \u003cinput type=\"submit\" value=\"Submit\" /\u003e\n\u003c/form\u003e"
+      },
+      {
+        "id": 4,
+        "title": "Semantic HTML",
+        "content": "Semantic tags improve readability and SEO. Use <article>, <section>, and <aside> to structure content meaningfully.",
+        "code": "\u003carticle\u003e\n  \u003cheader\u003eArticle Title\u003c/header\u003e\n  \u003cp\u003eArticle content goes here.\u003c/p\u003e\n  \u003cfooter\u003eAuthor: John Doe\u003c/footer\u003e\n\u003c/article\u003e"
+      },
+      {
+        "id": 5,
+        "title": "HTML5 APIs",
+        "content": "HTML5 includes APIs for multimedia, geolocation, and offline storage. Use the video tag for embedding videos and the canvas tag for drawing graphics.",
+        "code": "\u003cvideo controls\u003e\n  \u003csource src=\"movie.mp4\" type=\"video/mp4\"\u003e\n  Your browser does not support the video tag.\n\u003c/video\u003e\n\n\u003ccanvas id=\"myCanvas\" width=\"200\" height=\"100\"\u003e\n  Your browser does not support the canvas element.\n\u003c/canvas\u003e"
+      }
+    ],
+    "pdf": "html_tutorial.pdf"
+  },
+  {
+    "id": 2,
+    "name": "CSS ",
+    "category": "Frontend",
+    "level": "Beginner",
+    "durationHours": 8,
+    "lessonCount": 16,
+    "summary": "Style layouts with Flexbox, Grid, and responsive design.",
+    "tags": ["CSS", "Layout", "Responsive"],
+    "image": "https://www.milesweb.ae/blog/wp-content/uploads/2025/06/what-is-css.png",
+    "lessons": [
+      { "id": 1, "title": "CSS Introduction", "content": "CSS is the language we use to style an HTML document. It describes how elements should be displayed.", "code": "body {\n  background-color: lightblue;\n}" },
+      { "id": 2, "title": "Selectors", "content": "Selectors are used to target HTML elements. You can select by tag name, class (.), or ID (#).", "code": "h1 {\n  color: navy;\n}\n.my-class {\n  font-size: 20px;\n}" },
+      { "id": 3, "title": "Colors & Backgrounds", "content": "Colors can be specified by names, RGB, HEX, or HSL values.", "code": "p {\n  color: #ff5733;\n  background-color: rgb(255, 255, 255);\n}" },
+      { "id": 4, "title": "The Box Model", "content": "Every element is a box. The box model consists of Margins, Borders, Padding, and the actual Content.", "code": "div {\n  width: 300px;\n  padding: 50px;\n  border: 15px solid green;\n  margin: 20px;\n}" },
+      { "id": 5, "title": "Text Styling", "content": "Use properties like font-family, font-size, and text-align to style your typography.", "code": "h1 {\n  text-align: center;\n  text-transform: uppercase;\n}" },
+      { "id": 6, "title": "Display Property", "content": "The display property specifies if/how an element is displayed (block, inline, inline-block, none).", "code": "li {\n  display: inline;\n}" },
+      { "id": 7, "title": "Positioning", "content": "The position property specifies the type of positioning used (static, relative, fixed, absolute, sticky).", "code": "div.static {\n  position: fixed;\n  top: 0;\n}" },
+      { "id": 8, "title": "Flexbox", "content": "Flexbox makes it easier to design flexible responsive layout structures without using floats.", "code": ".container {\n  display: flex;\n  justify-content: center;\n}" },
+      { "id": 9, "title": "CSS Grid", "content": "Grid Layout offers a grid-based layout system, with rows and columns.", "code": ".grid-container {\n  display: grid;\n  grid-template-columns: auto auto auto;\n}" },
+      { "id": 10, "title": "Media Queries", "content": "Media queries are the most popular method for creating responsive web designs.", "code": "@media screen and (max-width: 600px) {\n  body {\n    background-color: olive;\n  }\n}" }
+    ],
+    "pdf": "css_tutorial.pdf"
+  },
+  {
+    "id": 3,
+    "name": "JavaScript ",
+    "category": "Frontend",
+    "level": "Beginner",
+    "durationHours": 10,
+    "lessonCount": 18,
+    "summary": "Learn variables, functions, arrays, and DOM manipulation.",
+    "tags": ["JavaScript", "DOM", "Logic"],
+    "image": "https://repository-images.githubusercontent.com/539560750/278d0bbf-6aaf-4f38-a18f-e328305bcd7b",
+    "lessons": [
+      { "id": 1, "title": "JS Introduction", "content": "JavaScript is the world's most popular programming language. It is the language of the Web.", "code": "console.log('Hello World');" },
+      { "id": 2, "title": "Variables", "content": "Variables are containers for storing data values. Use let or const.", "code": "let name = 'User';\nconst pi = 3.14;" },
+      { "id": 3, "title": "Data Types", "content": "JS variables can hold different data types: numbers, strings, objects and more.", "code": "let x = 16; // Number\nlet name = 'Johnson'; // String" },
+      { "id": 4, "title": "Functions", "content": "A function is a block of code designed to perform a particular task.", "code": "function myFunc(p1, p2) {\n  return p1 * p2;\n}" },
+      { "id": 5, "title": "Objects", "content": "Objects are variables too. But objects can contain many values.", "code": "const car = {type:'Fiat', model:'500', color:'white'};" },
+      { "id": 6, "title": "Events", "content": "HTML events are 'things' that happen to HTML elements, like a click or a hover.", "code": "<button onclick='alert(\"Clicked!\")'>Click Me</button>" },
+      { "id": 7, "title": "Arrays", "content": "Arrays are used to store multiple values in a single variable.", "code": "const cars = ['Saab', 'Volvo', 'BMW'];" },
+      { "id": 8, "title": "Conditionals", "content": "Use if/else to perform different actions based on different conditions.", "code": "if (hour < 18) {\n  greeting = 'Good day';\n}" },
+      { "id": 9, "title": "Loops", "content": "Loops are handy if you want to run the same code over and over again.", "code": "for (let i = 0; i < 5; i++) {\n  text += i;\n}" },
+      { "id": 10, "title": "DOM Intro", "content": "With the HTML DOM, JavaScript can access and change all the elements of an HTML document.", "code": "document.getElementById('demo').innerHTML = 'Hello World!';" }
+    ],
+    "pdf": "javascript_tutorial.pdf"
+  },
+  {
+    "id": 4,
+    "name": "React Js",
+    "category": "Frontend",
+    "level": "Intermediate",
+    "durationHours": 12,
+    "lessonCount": 20,
+    "summary": "Build component-based UIs with hooks and routing.",
+    "tags": ["React", "Components", "Hooks"],
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGmyGCTeXmau4x4tnpWH-uHNJtb47xzC0Zkw\u0026s",
+    "lessons": [
+      {
+      "id": 1,
+      "title": "React Introduction",
+      "content": "React is a JavaScript library for building user interfaces. It is used to build single-page applications and allows us to create reusable UI components.",
+      "code": "// To use React in HTML:\n// <script src=\"https://unpkg.com/react@18/umd/react.development.js\"></script>"
+    },
+    {
+      "id": 2,
+      "title": "JSX Fundamentals",
+      "content": "JSX stands for JavaScript XML. It allows us to write HTML in React and place them in the DOM without any createElement() methods.",
+      "code": "const myElement = <h1>I Love JSX!</h1>;\nconst root = ReactDOM.createRoot(document.getElementById('root'));\nroot.render(myElement);"
+    },
+    {
+      "id": 3,
+      "title": "Components (Function vs Class)",
+      "content": "Components are like functions that return HTML elements. They are independent and reusable bits of code. Today, Function components are the standard.",
+      "code": "function Welcome() {\n  return <h2>Hello, I am a Component!</h2>;\n}"
+    },
+    {
+      "id": 4,
+      "title": "Props (Properties)",
+      "content": "Props are arguments passed into React components. They are passed via HTML attributes and are read-only.",
+      "code": "function Car(props) {\n  return <h2>I am a {props.color} Car!</h2>;\n}\n\nconst root = ReactDOM.createRoot(document.getElementById('root'));\nroot.render(<Car color=\"red\" />);"
+    },
+    {
+      "id": 5,
+      "title": "React useState Hook",
+      "content": "The useState hook allows us to track state in a function component. State generally refers to data or properties that need to be tracked in an application.",
+      "code": "import { useState } from \"react\";\n\nfunction FavoriteColor() {\n  const [color, setColor] = useState(\"red\");\n  return <h1>My favorite color is {color}!</h1>;\n}"
+    },
+    {
+      "id": 6,
+      "title": "React useEffect Hook",
+      "content": "The useEffect hook allows you to perform side effects in your components, such as fetching data, directly updating the DOM, and timers.",
+      "code": "useEffect(() => {\n  // Runs on every render\n});\n\nuseEffect(() => {\n  // Runs only on first render\n}, []);"
+    },
+    {
+      "id": 7,
+      "title": "Handling Events",
+      "content": "React events are written in camelCase syntax (onClick instead of onclick). Event handlers are passed as functions rather than strings.",
+      "code": "<button onClick={shoot}>Take the Shot!</button>"
+    },
+    {
+      "id": 8,
+      "title": "Conditional Rendering",
+      "content": "In React, you can create distinct components that encapsulate the behavior you need. Then, you can render only some of them, depending on the state.",
+      "code": "function Goal(props) {\n  const isGoal = props.isGoal;\n  return <>{ isGoal ? <MadeGoal/> : <MissedGoal/> }</>;\n}"
+    },
+    {
+      "id": 9,
+      "title": "Lists and Keys",
+      "content": "You can build collections of elements and include them in JSX using curly braces. Keys help React identify which items have changed, are added, or are removed.",
+      "code": "<ul>\n  {cars.map((car) => <li key={car.id}>{car.brand}</li>)}\n</ul>"
+    },
+    {
+      "id": 10,
+      "title": "React Router",
+      "content": "React Router is the standard routing library for React. It allows the navigation among views of various components in a React Application.",
+      "code": "<BrowserRouter>\n  <Routes>\n    <Route path=\"/\" element={<Home />} />\n    <Route path=\"/contact\" element={<Contact />} />\n  </Routes>\n</BrowserRouter>"
+    }
+    ],
+    "pdf": "reactjs_tutorial.pdf"
+  },
+{
+  "id": 5,
+  "name": "Node.js Essentials",
+  "category": "Backend",
+  "level": "Intermediate",
+  "durationHours": 12,
+  "lessonCount": 10,
+  "summary": "Master server-side JavaScript to build scalable network applications and REST APIs.",
+  "tags": ["Node.js", "Express", "Backend"],
+  "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtb_9zVzsPWq_LDNDBVCsBYFo996KtVyCxWg&s",
+  "lessons": [
+    {
+      "id": 1,
+      "title": "What is Node.js?",
+      "content": "Node.js is an open-source, cross-platform, JavaScript runtime environment that executes JavaScript code outside a web browser. It is built on Chrome's V8 engine and uses an event-driven, non-blocking I/O model.",
+      "code": "// Check your version in terminal:\n// node -v"
+    },
+    {
+      "id": 2,
+      "title": "Node.js Modules",
+      "content": "Consider modules to be the same as JavaScript libraries. Node.js has a set of built-in modules which you can use without any further installation (like 'http', 'fs', and 'path').",
+      "code": "var http = require('http');\n\nhttp.createServer(function (req, res) {\n  res.write('Hello World!');\n  res.end();\n}).listen(8080);"
+    },
+    {
+      "id": 3,
+      "title": "NPM (Node Package Manager)",
+      "content": "NPM is the world's largest software registry. It is installed automatically with Node.js. Use it to install packages like Express, Mongoose, or Axios.",
+      "code": "// In terminal:\n// npm install express\n// npm init -y"
+    },
+    {
+      "id": 4,
+      "title": "File System Module",
+      "content": "The Node.js file system module allows you to work with the file system on your computer. Common tasks include reading, creating, updating, and deleting files.",
+      "code": "var fs = require('fs');\n\nfs.readFile('demofile.html', function(err, data) {\n  // Handle data or error here\n});"
+    },
+    {
+      "id": 5,
+      "title": "URL Module",
+      "content": "The URL module splits a web address into readable parts. This is essential for routing and handling different request parameters.",
+      "code": "var url = require('url');\nvar adr = 'http://localhost:8080/default.htm?year=2024&month=april';\nvar q = url.parse(adr, true);\n\nconsole.log(q.host); // localhost:8080"
+    },
+    {
+      "id": 6,
+      "title": "Events & EventEmitter",
+      "content": "Every action on a computer is an event. Node.js has a built-in module, called 'Events', where you can create-, fire-, and listen for your own events.",
+      "code": "var events = require('events');\nvar eventEmitter = new events.EventEmitter();\n\neventEmitter.on('scream', () => console.log('I hear a scream!'));\neventEmitter.emit('scream');"
+    },
+    {
+      "id": 7,
+      "title": "Introduction to Express",
+      "content": "Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.",
+      "code": "const express = require('express');\nconst app = express();\n\napp.get('/', (req, res) => {\n  res.send('Hello from Express!');\n});\n\napp.listen(3000);"
+    },
+    {
+      "id": 8,
+      "title": "REST API Routing",
+      "content": "Routing refers to determining how an application responds to a client request to a particular endpoint, which is a URI (or path) and a specific HTTP request method (GET, POST, etc.).",
+      "code": "app.post('/user', (req, res) => {\n  res.send('Got a POST request');\n});"
+    },
+    {
+      "id": 9,
+      "title": "Middleware",
+      "content": "Middleware functions are functions that have access to the request object (req), the response object (res), and the next middleware function in the application’s request-response cycle.",
+      "code": "app.use(function (req, res, next) {\n  console.log('Time:', Date.now());\n  next();\n});"
+    },
+    {
+      "id": 10,
+      "title": "Database Connection (MongoDB)",
+      "content": "Node.js can be used in database applications. One of the most popular databases for Node.js is MongoDB, a NoSQL database that stores data in JSON-like documents.",
+      "code": "const mongoose = require('mongoose');\nmongoose.connect('mongodb://localhost/test_db');"
+    }
+    ],
+    "pdf": "nodejs_tutorial.pdf"
+  },
+  {
+    "id": 6,
+    "name": "Python for",
+    "category": "Backend",
+    "level": "Beginner",
+    "durationHours": 9,
+    "lessonCount": 15,
+    "summary": "Learn Python syntax, data structures, and scripts.",
+    "tags": ["Python", "Data", "Scripts"],
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-tc8w62CNERo_OvigPV2nwd6_Mc9fSMN40g\u0026s",
+    "lessons": [
+      {
+        "content": "This lesson introduces the core ideas of Python for and how it is used in real projects.",
+        "title": "Introduction to Python for",
+        "code": "// Python for starter\nconsole.log(\"Hello, Python for!\")",
+        "id": 1
+      },
+      {
+        "content": "Learn the foundational concepts you will use in Python for projects.",
+        "title": "Python for Core Concepts",
+        "code": "// Practice\nconst topics = [\"Basics\", \"Syntax\", \"Best Practices\"];\nconsole.log(topics);",
+        "id": 2
+      }
+    ],
+    "pdf": "python_tutorial.pdf"
+  },
+  {
+    "id": 7,
+    "name": "Java Programming",
+    "category": "Backend",
+    "level": "Intermediate",
+    "durationHours": 14,
+    "lessonCount": 22,
+    "summary": "Master OOP concepts and build console apps.",
+    "tags": ["Java", "OOP", "Classes"],
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQM9PeWvphnXOtwq5lJ_uyuXs6mugQ0Dhqxxw\u0026s",
+    "lessons": [
+      {
+        "content": "This lesson introduces the core ideas of Java Programming and how it is used in real projects.",
+        "title": "Introduction to Java Programming",
+        "code": "// Java Programming starter\nconsole.log(\"Hello, Java Programming!\")",
+        "id": 1
+      },
+      {
+        "content": "Learn the foundational concepts you will use in Java Programming projects.",
+        "title": "Java Programming Core Concepts",
+        "code": "// Practice\nconst topics = [\"Basics\", \"Syntax\", \"Best Practices\"];\nconsole.log(topics);",
+        "id": 2
+      }
+    ],
+    "pdf": "java_tutorial.pdf"
+  },
+  {
+    "id": 8,
+    "name": "C# and .NET Basics",
+    "category": "Backend",
+    "level": "Intermediate",
+    "durationHours": 12,
+    "lessonCount": 20,
+    "summary": "Develop with C# syntax, LINQ, and .NET tooling.",
+    "tags": ["C#", ".NET", "LINQ"],
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7AJibMVALCqjy755vLcIillzm4ZTowt2ZvA\u0026s",
+    "lessons": [
+      {
+        "content": "This lesson introduces the core ideas of C# and .NET Basics and how it is used in real projects.",
+        "title": "Introduction to C# and .NET Basics",
+        "code": "// C# and .NET Basics starter\nconsole.log(\"Hello, C# and .NET Basics!\")",
+        "id": 1
+      },
+      {
+        "content": "Learn the foundational concepts you will use in C# and .NET Basics projects.",
+        "title": "C# and .NET Basics Core Concepts",
+        "code": "// Practice\nconst topics = [\"Basics\", \"Syntax\", \"Best Practices\"];\nconsole.log(topics);",
+        "id": 2
+      }
+    ],
+    "pdf": "csharp_tutorial.pdf"
+  },
+  {
+    "id": 9,
+    "name": "MySQL ",
+    "category": "Database",
+    "level": "Beginner",
+    "durationHours": 7,
+    "lessonCount": 14,
+    "summary": "Query data, join tables, and design schemas.",
+    "tags": ["SQL", "Database", "Queries"],
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2jnqhGEMmH3Yt-dZsKWEhilGCBGqc7Q73vA\u0026s",
+    "lessons": [
+      {
+        "content": "This lesson introduces the core ideas of MySQL and how it is used in real projects.",
+        "title": "Introduction to MySQL",
+        "code": "// MySQL starter\nconsole.log(\"Hello, MySQL!\")",
+        "id": 1
+      },
+      {
+        "content": "Learn the foundational concepts you will use in MySQL projects.",
+        "title": "MySQL Core Concepts",
+        "code": "// Practice\nconst topics = [\"Basics\", \"Syntax\", \"Best Practices\"];\nconsole.log(topics);",
+        "id": 2
+      }
+    ],
+    "pdf": "mysql_tutorial.pdf"
+  },
+  {
+    "id": 10,
+    "name": "Git and GitHub Workflow",
+    "category": "Tools",
+    "level": "Beginner",
+    "durationHours": 5,
+    "lessonCount": 10,
+    "summary": "Track changes, manage branches, and collaborate.",
+    "tags": ["Git", "GitHub", "Version Control"],
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSo89mOCbLYnA-HanRyAg1PaKK2AlWs6a-WrQ\u0026s",
+    "lessons": [
+      {
+        "content": "This lesson introduces the core ideas of Git and GitHub Workflow and how it is used in real projects.",
+        "title": "Introduction to Git and GitHub Workflow",
+        "code": "// Git and GitHub Workflow starter\nconsole.log(\"Hello, Git and GitHub Workflow!\")",
+        "id": 1
+      },
+      {
+        "content": "Learn the foundational concepts you will use in Git and GitHub Workflow projects.",
+        "title": "Git and GitHub Workflow Core Concepts",
+        "code": "// Practice\nconst topics = [\"Basics\", \"Syntax\", \"Best Practices\"];\nconsole.log(topics);",
+        "id": 2
+      }
+    ],
+    "pdf": "A Tutorial for GitHub.pdf"
+  },
+  {
+    "id": 11,
+    "name": "TypeScript Essentials",
+    "category": "Frontend",
+    "level": "Intermediate",
+    "durationHours": 9,
+    "lessonCount": 16,
+    "summary": "Add strong typing to JavaScript for safer apps.",
+    "tags": ["TypeScript", "Types", "Tooling"],
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Typescript.svg/1280px-Typescript.svg.png",
+    "lessons": [
+      {
+        "content": "This lesson introduces the core ideas of TypeScript Essentials and how it is used in real projects.",
+        "title": "Introduction to TypeScript Essentials",
+        "code": "// TypeScript Essentials starter\nconsole.log(\"Hello, TypeScript Essentials!\")",
+        "id": 1
+      },
+      {
+        "content": "Learn the foundational concepts you will use in TypeScript Essentials projects.",
+        "title": "TypeScript Essentials Core Concepts",
+        "code": "// Practice\nconst topics = [\"Basics\", \"Syntax\", \"Best Practices\"];\nconsole.log(topics);",
+        "id": 2
+      }
+    ],
+    "pdf": "typescript_tutorial.pdf"
+  },
+  {
+    "id": 12,
+    "name": "Next.js Fundamentals",
+    "category": "Frontend",
+    "level": "Intermediate",
+    "durationHours": 11,
+    "lessonCount": 18,
+    "summary": "Build production-ready React apps with routing.",
+    "tags": ["Next.js", "React", "SSR"],
+    "image": "https://cdn.shopaccino.com/igmguru/products/nextjs-training-191888688644054_l.jpg?v=547",
+    "lessons": [
+      {
+        "content": "This lesson introduces the core ideas of Next.js Fundamentals and how it is used in real projects.",
+        "title": "Introduction to Next.js Fundamentals",
+        "code": "// Next.js Fundamentals starter\nconsole.log(\"Hello, Next.js Fundamentals!\")",
+        "id": 1
+      },
+      {
+        "content": "Learn the foundational concepts you will use in Next.js Fundamentals projects.",
+        "title": "Next.js Fundamentals Core Concepts",
+        "code": "// Practice\nconst topics = [\"Basics\", \"Syntax\", \"Best Practices\"];\nconsole.log(topics);",
+        "id": 2
+      }
+    ],
+    "pdf": "nextjs_tutorial.pdf"
+  },
+  {
+    "id": 13,
+    "name": "Vue.js Essentials",
+    "category": "Frontend",
+    "level": "Beginner",
+    "durationHours": 8,
+    "lessonCount": 14,
+    "summary": "Create reactive interfaces with Vue components.",
+    "tags": ["Vue", "Components", "Reactive"],
+    "image": "https://miro.medium.com/1*vYKA-nnA_hvBZil2TTq37g.jpeg",
+    "lessons": [
+      {
+        "content": "This lesson introduces the core ideas of Vue.js Essentials and how it is used in real projects.",
+        "title": "Introduction to Vue.js Essentials",
+        "code": "// Vue.js Essentials starter\nconsole.log(\"Hello, Vue.js Essentials!\")",
+        "id": 1
+      },
+      {
+        "content": "Learn the foundational concepts you will use in Vue.js Essentials projects.",
+        "title": "Vue.js Essentials Core Concepts",
+        "code": "// Practice\nconst topics = [\"Basics\", \"Syntax\", \"Best Practices\"];\nconsole.log(topics);",
+        "id": 2
+      }
+    ],
+    "pdf": "vuejs_tutorial.pdf"
+  },
+  {
+    "id": 14,
+    "name": "Angular Core",
+    "category": "Frontend",
+    "level": "Intermediate",
+    "durationHours": 12,
+    "lessonCount": 20,
+    "summary": "Learn modules, services, and Angular CLI workflow.",
+    "tags": ["Angular", "TypeScript", "CLI"],
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7vEOmVXrEdo0DYjt5CC78I7_3i_nhL9ivHg\u0026s",
+    "lessons": [
+      {
+        "content": "This lesson introduces the core ideas of Angular Core and how it is used in real projects.",
+        "title": "Introduction to Angular Core",
+        "code": "// Angular Core starter\nconsole.log(\"Hello, Angular Core!\")",
+        "id": 1
+      },
+      {
+        "content": "Learn the foundational concepts you will use in Angular Core projects.",
+        "title": "Angular Core Core Concepts",
+        "code": "// Practice\nconst topics = [\"Basics\", \"Syntax\", \"Best Practices\"];\nconsole.log(topics);",
+        "id": 2
+      }
+    ],
+    "pdf": "angular-tutorial.pdf"
+  },
+  {
+    "id": 15,
+    "name": "Spring Boot ",
+    "category": "Backend",
+    "level": "Intermediate",
+    "durationHours": 10,
+    "lessonCount": 16,
+    "summary": "Build fast APIs and services with Spring Boot.",
+    "tags": ["Spring Boot", "Java", "API"],
+    "image": "https://miro.medium.com/1*os-kEY6vkmhbx3TEznlOng.png",
+    "lessons": [
+      {
+        "content": "This lesson introduces the core ideas of Spring Boot and how it is used in real projects.",
+        "title": "Introduction to Spring Boot",
+        "code": "// Spring Boot starter\nconsole.log(\"Hello, Spring Boot!\")",
+        "id": 1
+      },
+      {
+        "content": "Learn the foundational concepts you will use in Spring Boot projects.",
+        "title": "Spring Boot Core Concepts",
+        "code": "// Practice\nconst topics = [\"Basics\", \"Syntax\", \"Best Practices\"];\nconsole.log(topics);",
+        "id": 2
+      }
+    ],
+    "pdf": "spring_boot_tutorial.pdf"
+  },
+  {
+    "id": 16,
+    "name": "Laravel ",
+    "category": "Backend",
+    "level": "Intermediate",
+    "durationHours": 12,
+    "lessonCount": 18,
+    "summary": "Write safe, fast code with Rust ownership.",
+    "tags": ["Rust", "Ownership", "Systems"],
+    "image": "https://picperf.io/https://laravelnews.s3.amazonaws.com/images/laravel-featured.png",
+    "lessons": [
+      {
+        "content": "This lesson introduces the core ideas of Laravel and how it is used in real projects.",
+        "title": "Introduction to Laravel",
+        "code": "// Laravel starter\nconsole.log(\"Hello, Laravel!\")",
+        "id": 1
+      },
+      {
+        "content": "Learn the foundational concepts you will use in Laravel projects.",
+        "title": "Laravel Core Concepts",
+        "code": "// Practice\nconst topics = [\"Basics\", \"Syntax\", \"Best Practices\"];\nconsole.log(topics);",
+        "id": 2
+      }
+    ],
+    "pdf": "laravel_tutorial.pdf"
+  },
+  {
+    "id": 17,
+    "name": "PHP Web Development",
+    "category": "Backend",
+    "level": "Beginner",
+    "durationHours": 9,
+    "lessonCount": 15,
+    "summary": "Build dynamic sites with PHP and MySQL.",
+    "tags": ["PHP", "Web", "MySQL"],
+    "image": "https://kinsta.com/wp-content/uploads/2023/10/PHP_Feature-Image.jpg",
+    "lessons": [
+      {
+        "content": "This lesson introduces the core ideas of PHP Web Development and how it is used in real projects.",
+        "title": "Introduction to PHP Web Development",
+        "code": "// PHP Web Development starter\nconsole.log(\"Hello, PHP Web Development!\")",
+        "id": 1
+      },
+      {
+        "content": "Learn the foundational concepts you will use in PHP Web Development projects.",
+        "title": "PHP Web Development Core Concepts",
+        "code": "// Practice\nconst topics = [\"Basics\", \"Syntax\", \"Best Practices\"];\nconsole.log(topics);",
+        "id": 2
+      }
+    ],
+    "pdf": "php_tutorial.pdf"
+  },
+  {
+    "id": 18,
+    "name": "Kotlin for Android",
+    "category": "Mobile",
+    "level": "Intermediate",
+    "durationHours": 11,
+    "lessonCount": 17,
+    "summary": "Create modern Android apps with Kotlin.",
+    "tags": ["Kotlin", "Android", "Mobile"],
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRvpWg7MyM9sbsnRLEjQ5zRuHrM88CKyJSQWw\u0026s",
+    "lessons": [
+      {
+        "content": "This lesson introduces the core ideas of Kotlin for Android and how it is used in real projects.",
+        "title": "Introduction to Kotlin for Android",
+        "code": "// Kotlin for Android starter\nconsole.log(\"Hello, Kotlin for Android!\")",
+        "id": 1
+      },
+      {
+        "content": "Learn the foundational concepts you will use in Kotlin for Android projects.",
+        "title": "Kotlin for Android Core Concepts",
+        "code": "// Practice\nconst topics = [\"Basics\", \"Syntax\", \"Best Practices\"];\nconsole.log(topics);",
+        "id": 2
+      }
+    ],
+    "pdf": "kotlin_tutorial.pdf"
+  },
+  {
+    "id": 19,
+    "name": "Dart Programming",
+    "category": "Mobile",
+    "level": "Intermediate",
+    "durationHours": 11,
+    "lessonCount": 17,
+    "summary": "Build hybrid interfaces with Dart and Flutter.",
+    "tags": ["Dart", "Flutter", "Mobile"],
+    "image": "https://dart.dev/assets/img/logo/dart-logo-for-shares.png",
+    "lessons": [
+      {
+        "content": "This lesson introduces the core ideas of Dart Programming and how it is used in real projects.",
+        "title": "Introduction to Dart Programming",
+        "code": "// Dart Programming starter\nconsole.log(\"Hello, Dart Programming!\")",
+        "id": 1
+      },
+      {
+        "content": "Learn the foundational concepts you will use in Dart Programming projects.",
+        "title": "Dart Programming Core Concepts",
+        "code": "// Practice\nconst topics = [\"Basics\", \"Syntax\", \"Best Practices\"];\nconsole.log(topics);",
+        "id": 2
+      }
+    ],
+    "pdf": "dart_programming_tutorial.pdf"
+  },
+  {
+    "id": 20,
+    "name": "Swift and iOS",
+    "category": "Mobile",
+    "level": "Intermediate",
+    "durationHours": 12,
+    "lessonCount": 18,
+    "summary": "Develop iOS apps with Swift and Xcode.",
+    "tags": ["Swift", "iOS", "Mobile"],
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrFbWcg6TsmkM5xQV84H9VfqPVxJfcMwVd3w\u0026s",
+    "lessons": [
+      {
+        "content": "This lesson introduces the core ideas of Swift and iOS and how it is used in real projects.",
+        "title": "Introduction to Swift and iOS",
+        "code": "// Swift and iOS starter\nconsole.log(\"Hello, Swift and iOS!\")",
+        "id": 1
+      },
+      {
+        "content": "Learn the foundational concepts you will use in Swift and iOS projects.",
+        "title": "Swift and iOS Core Concepts",
+        "code": "// Practice\nconst topics = [\"Basics\", \"Syntax\", \"Best Practices\"];\nconsole.log(topics);",
+        "id": 2
+      }
+    ],
+    "pdf": "swift_tutorial.pdf"
+  }
+]
