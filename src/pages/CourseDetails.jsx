@@ -17,7 +17,13 @@ const CourseDetails = () => {
     );
   }
   const lessons = course.lessons || [];
-  const pdfUrl = course.pdf ? pdfFiles[`../assets/PDF/${course.pdf}`] : null;
+  const baseUrl = import.meta.env.BASE_URL || "/";
+  const publicPdfUrl = course.pdf
+    ? `${baseUrl}PDF/${encodeURIComponent(course.pdf)}`
+    : null;
+  const pdfUrl = course.pdf
+    ? pdfFiles[`../assets/PDF/${course.pdf}`] || publicPdfUrl
+    : null;
   const [activeLessonId, setActiveLessonId] = useState(
     lessons.length ? lessons[0].id : null
   );
