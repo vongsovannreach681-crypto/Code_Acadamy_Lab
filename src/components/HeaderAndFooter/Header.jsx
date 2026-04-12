@@ -163,7 +163,7 @@ const Header = ({ favoritesCount = 0 }) => {
               Home
             </NavLink>
             <NavLink
-              to="/course"
+              to="/courseNav"
               className={({ isActive }) =>
                 `block rounded-lg px-3 py-2 text-[18px] font-semibold transition ${
                   isActive

@@ -35,6 +35,9 @@ const router = createBrowserRouter([
     path: "/courseNav",
     element: <AllCourseRenderForNav/>
   },{
+    path: "/course",
+    element: <AllCourseRenderForNav/>
+  },{
     path:"/Enroll",
     element:<EnrollForCode/>
   }
