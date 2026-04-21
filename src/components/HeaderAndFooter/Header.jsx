@@ -71,18 +71,7 @@ const Header = ({ favoritesCount = 0 }) => {
             >
               Courses
             </NavLink>
-            {/* <NavLink
-              to="/sharing"
-              className={({ isActive }) =>
-                `text-[18px] font-semibold transition md:text-[18px] ${
-                  isActive
-                    ? 'text-yellow-500 underline underline-offset-8'
-                    : 'text-indigo-700 hover:text-indigo-900 dark:text-indigo-200 dark:hover:text-white'
-                }`
-              }
-            >
-              Sharing
-            </NavLink> */}
+            {/* cancle uploading sharing  */}
             <NavLink
               to="/certificate"
               className={({ isActive }) =>
