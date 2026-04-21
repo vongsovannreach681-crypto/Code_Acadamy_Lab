@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import logo from '../../assets/Logo.png'
-import { getCurrentUser, logoutUser } from '../../utils/auth'
+import { getCurrentUser } from '../../utils/auth'
 
 const Header = ({ favoritesCount = 0 }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -26,11 +26,6 @@ const Header = ({ favoritesCount = 0 }) => {
 
   const toggleTheme = () => {
     setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'))
-  }
-
-  const handleLogout = () => {
-    logoutUser()
-    setUser(null)
   }
 
   return (
@@ -76,7 +71,7 @@ const Header = ({ favoritesCount = 0 }) => {
             >
               Courses
             </NavLink>
-            <NavLink
+            {/* <NavLink
               to="/sharing"
               className={({ isActive }) =>
                 `text-[18px] font-semibold transition md:text-[18px] ${
@@ -87,7 +82,7 @@ const Header = ({ favoritesCount = 0 }) => {
               }
             >
               Sharing
-            </NavLink>
+            </NavLink> */}
             <NavLink
               to="/certificate"
               className={({ isActive }) =>
@@ -203,6 +198,7 @@ const Header = ({ favoritesCount = 0 }) => {
                 <Link
                   to="/profile"
                   className="flex items-center gap-3 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-sm font-semibold text-slate-700 shadow-sm transition hover:border-slate-300 hover:text-slate-900 dark:border-white/10 dark:bg-white/5 dark:text-slate-100 dark:hover:text-white"
+                  onClick={() => setIsMenuOpen(false)}
                 >
                   <span className="grid h-8 w-8 place-items-center overflow-hidden rounded-full bg-indigo-100 text-indigo-700 dark:bg-indigo-500/20 dark:text-indigo-200">
                     {user.avatar ? (

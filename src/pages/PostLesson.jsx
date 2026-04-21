@@ -184,6 +184,14 @@ const PostLesson = () => {
     setSubmitted(false);
     setErrors({});
 
+    const user = getCurrentUser();
+    if (!user) {
+      const message = "You can't upload lessons right now. Please login first.";
+      setErrors({ form: message });
+      window.alert(message);
+      return;
+    }
+
     const validation = formSchema.safeParse(form);
     if (!validation.success) {
       setErrors(mapZodErrors(validation.error.issues));
@@ -192,7 +200,6 @@ const PostLesson = () => {
 
     const normalizedLessons = normalizeLessons(form.lessons);
     const allLessons = getAllLessons();
-    const user = getCurrentUser();
     const payload = {
       id: getNextLessonId(allLessons),
       name: form.name.trim(),
@@ -215,6 +222,7 @@ const PostLesson = () => {
     saveLesson(payload);
     setSubmitted(true);
     setPreview(payload);
+    window.alert("Lesson uploaded successfully.");
   };
 
   const handleReset = () => {

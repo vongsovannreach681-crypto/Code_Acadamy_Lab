@@ -1,7 +1,8 @@
-ï»¿import React, { useMemo, useState } from "react";
+import React, { useMemo, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Header from "../components/HeaderAndFooter/Header";
 import Footer from "../components/HeaderAndFooter/Footer";
-import { getCurrentUser } from "../utils/auth";
+import { getCurrentUser, logoutUser } from "../utils/auth";
 import { getAllLessons } from "../Data/lessonStore";
 
 const tabs = [
@@ -12,6 +13,7 @@ const tabs = [
 ];
 
 const Profile = () => {
+  const navigate = useNavigate();
   const user = getCurrentUser();
   const [activeTab, setActiveTab] = useState("profile");
   const [profile, setProfile] = useState(() => ({
@@ -109,6 +111,12 @@ const Profile = () => {
     setHistoryEntries(next);
     localStorage.setItem("viewHistory", JSON.stringify(next));
     setNotice("History entry removed.");
+  };
+
+  const handleLogout = () => {
+    logoutUser();
+    window.alert("Logged out successfully.");
+    navigate("/");
   };
 
   if (!user) {
@@ -259,6 +267,13 @@ const Profile = () => {
                     >
                       Save Profile
                     </button>
+                    <button
+                      type="button"
+                      onClick={handleLogout}
+                      className="w-full rounded-2xl border border-rose-200 px-4 py-3 text-sm font-semibold text-rose-600 transition hover:bg-rose-50 dark:border-rose-400/40 dark:text-rose-300 dark:hover:bg-rose-500/10"
+                    >
+                      Logout
+                    </button>
                   </form>
                 </div>
               )}
@@ -283,7 +298,7 @@ const Profile = () => {
                                 {lesson.name}
                               </p>
                               <p className="mt-1 text-xs text-slate-500">
-                                {lesson.category} â€¢ {lesson.lessonCount} lessons
+                                {lesson.category} • {lesson.lessonCount} lessons
                               </p>
                             </div>
                             <button
@@ -321,7 +336,7 @@ const Profile = () => {
                                 {lesson.name}
                               </p>
                               <p className="mt-1 text-xs text-slate-500">
-                                {lesson.category} â€¢ {lesson.durationHours} hrs
+                                {lesson.category} • {lesson.durationHours} hrs
                               </p>
                             </div>
                             <button
@@ -386,3 +401,5 @@ const Profile = () => {
 };
 
 export default Profile;
+
+
