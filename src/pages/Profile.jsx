@@ -298,7 +298,7 @@ const Profile = () => {
                                 {lesson.name}
                               </p>
                               <p className="mt-1 text-xs text-slate-500">
-                                {lesson.category} • {lesson.lessonCount} lessons
+                                {lesson.category} - {lesson.lessonCount} lessons
                               </p>
                             </div>
                             <button
@@ -336,7 +336,7 @@ const Profile = () => {
                                 {lesson.name}
                               </p>
                               <p className="mt-1 text-xs text-slate-500">
-                                {lesson.category} • {lesson.durationHours} hrs
+                                {lesson.category} - {lesson.durationHours} hrs
                               </p>
                             </div>
                             <button
