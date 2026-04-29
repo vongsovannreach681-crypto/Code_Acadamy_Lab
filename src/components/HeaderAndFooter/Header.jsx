@@ -241,7 +241,7 @@ const Header = ({ favoritesCount = 0 }) => {
             >
               Courses
             </NavLink>
-            <NavLink
+            {/* <NavLink
               to="/sharing"
               className={({ isActive }) =>
                 `block rounded-lg px-3 py-2 text-[18px] font-semibold transition ${
@@ -253,7 +253,7 @@ const Header = ({ favoritesCount = 0 }) => {
               onClick={() => setIsMenuOpen(false)}
             >
               Sharing
-            </NavLink>
+            </NavLink> */}
             <NavLink
               to="/certificate"
               className={({ isActive }) =>
